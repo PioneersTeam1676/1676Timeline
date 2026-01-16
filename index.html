@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1676 Pi-line</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="timeline-container" id="timelineContainer">
+        <!-- Center Logo -->
+        <img src="logoPioneersSmall (1).jpg" alt="Team 1676 Logo" class="center-logo">
+
+        <!-- Year Ring -->
+        <div class="timeline-ring" id="yearRing"></div>
+
+        <!-- Category Ring -->
+        <div class="inner-ring" id="innerRingContainer">
+            <div class="inner-ring-content" id="categoryRing"></div>
+            <!-- Inner Indicator -->
+            <div class="indicator inner-arrow"></div>
+        </div>
+
+        <!-- Outer Indicator -->
+        <div class="indicator"></div>
+    </div>
+
+    <!-- Content Display -->
+    <div class="content-area">
+        <div id="contentHeader" class="content-header">Loading...</div>
+        <div id="contentBody" class="content-body">
+            <!-- Content injected here -->
+        </div>
+    </div>
+
+    <!-- Topic Timeline Modal -->
+    <div id="topicModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle">Timeline</h2>
+            <div id="modalBody" class="timeline-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
