@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team 1676 Pi-line</title>
-</head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hide instructions immediately if already seen - prevents flash */
+        .instructions-overlay.pre-hidden {
+            display: none !important;
+        }
+    </style>
+    <script>
+        // Run immediately before page renders
+        if (localStorage.getItem('pilineInstructionsSeen')) {
+            document.documentElement.classList.add('instructions-seen');
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -31,6 +42,29 @@
         <!-- Outer Indicator -->
         <div class="indicator"></div>
     </div>
+
+    <!-- First Time Instructions Overlay -->
+    <div id="instructionsOverlay" class="instructions-overlay">
+        <div class="instructions-content">
+            <h3>Welcome to the Pi-line!</h3>
+            <div class="instruction-item">
+                <span class="instruction-icon">↻</span>
+                <p><strong>Outer Ring:</strong> Drag or click to select a year</p>
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-icon">◉</span>
+                <p><strong>Inner Ring:</strong> Drag or click to select a category</p>
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-icon">👆</span>
+                <p><strong>Events:</strong> Click any event to see related history</p>
+            </div>
+            <button id="dismissInstructions" class="dismiss-btn">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Help Button -->
+    <button id="helpButton" class="help-btn" title="How to use">💡</button>
 
     <!-- Content Display -->
     <div class="content-area">
