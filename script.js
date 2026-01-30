@@ -6,7 +6,7 @@ const rawTimelineData = {
         "Hills & Valley in Panasonic Design Challenge"
     ],
     "2005": [
-        "Matt Hayon, Pascack Valley Class of 2005, and Pascack Hills teacher, Phil Paspalas, create Team 1676.",
+        "Matt Hayon, Pascack Valley Class of 2005, and Pascack Hills teacher, Phil Paspalas, create Team 1676. ",
         "Competed in NJ Regional and FIRST World Championship.",
         "Competed at Brunswick Eruption off-season event.",
         "Won Rookie All-Star Award.",
