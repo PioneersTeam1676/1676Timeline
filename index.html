@@ -9,13 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Hide instructions immediately if already seen - prevents flash */
         .instructions-overlay.pre-hidden {
             display: none !important;
         }
     </style>
     <script>
-        // Run immediately before page renders
         if (localStorage.getItem('pilineInstructionsSeen')) {
             document.documentElement.classList.add('instructions-seen');
         }
@@ -26,7 +24,6 @@
 <body>
 
     <div class="timeline-container" id="timelineContainer">
-        <!-- Center Logo -->
         <img src="logoPioneersSmall (1).jpg" alt="Team 1676 Logo" class="center-logo">
 
         <!-- Year Ring -->
@@ -35,7 +32,6 @@
         <!-- Category Ring -->
         <div class="inner-ring" id="innerRingContainer">
             <div class="inner-ring-content" id="categoryRing"></div>
-            <!-- Inner Indicator -->
             <div class="indicator inner-arrow"></div>
         </div>
 
@@ -69,9 +65,7 @@
     <!-- Content Display -->
     <div class="content-area">
         <div id="contentHeader" class="content-header">Loading...</div>
-        <div id="contentBody" class="content-body">
-            <!-- Content injected here -->
-        </div>
+        <div id="contentBody" class="content-body"></div>
     </div>
 
     <!-- Topic Timeline Modal -->
