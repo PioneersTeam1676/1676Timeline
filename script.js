@@ -1,475 +1,290 @@
+// --- PRE-ORGANIZED TIMELINE DATABASE ---
+// Team 1676 Timeline data, organized by year and category
 
-// --- DATASET FROM XLSX ---
-// Raw entries from "Team 1676 Timeline in a Sheet.xlsx"
-const rawTimelineData = {
-    "2004": [
-        "Hills & Valley in Panasonic Design Challenge"
-    ],
-    "2005": [
-        "Matt Hayon, Pascack Valley Class of 2005, and Pascack Hills teacher, Phil Paspalas, create Team 1676. ",
-        "Competed in NJ Regional and FIRST World Championship.",
-        "Competed at Brunswick Eruption off-season event.",
-        "Won Rookie All-Star Award.",
-        "Launched New Parent Meetings."
-    ],
-    "2006": [
-        "Assisted NJIT kickoff with kit distribution & cleanup.",
-        "Events: New Jersey Regional - Palmetto Regional",
-        "Created Autodesk inventor tutorial for N.J. Regional teams.",
-        "Started and mentored River Vale FLL team.",
-        "Empowered girls in robotics hosting a Girl Scout program.",
-        "Development of team outreach begins."
-    ],
-    "2007": [
-        "Flood cleanup aid in River Vale.",
-        "Events: Buckeye Regional - FIRST Vex Challenge Garden State Rumble -",
-        "FIRST World Championship - Newton Subdivision - New Jersey Regional",
-        "Won NJ FIRST® Vex Challenge!",
-        "Began Hillsdale Food Pantry food drives and donations.",
-        "Started and mentored Hillsdale FLL team.",
-        "Collaborated with Computer Outreach, a non-profit that donates computers to underprivileged children.",
-        "Demonstrated robot at Wired’s NextFest in New York City",
-        "Showcased FIRST® to Technology Educators Association of New Jersey (TEANJ) Conference."
-    ],
-    "2008": [
-        "Began promoting STEAM and FIRST® at town days and parades.",
-        "Events: Greater Toronto Regional - New Jersey Regional - FIRST World Championship - Galileo Division",
-        "Ran “Pascack Pandamonium” off-season event covered by media.",
-        "Taught Autodesk Inventor at N.J. Regional competition.",
-        "Started and mentored the Woodcliff Lake FLL team.",
-        "Volunteered at Saddle River FLL Bergen Qualifying Tournament.",
-        "Began annual Car Wash Fundraiser with mentored FLL teams."
-    ],
-    "2009": [
-        "Launched an online scouting database for robotics.",
-        "Events: Palmetto Regional - FIRST World Championship - Galileo Division",
-        "Provided the webcast for the New Jersey Regional Competition.",
-        "Began hosting the FLL Bergen Qualifying Tournament.",
-        "Started and mentored the Montvale FLL team.",
-        "Held first Sponsor Appreciation Night.",
-        "Demonstrated our robot at the World Science Festival in New York City.",
-        "Launched the annual Pi-oneer Senior Scholarships."
-    ],
-    "2010": [
-        "Wrote the first business plan.",
-        "Events: New Jersey Regional - Virginia Regional - FIRST World Championship - Curie Division",
-        "Received coverage in local media in cities and schools we visited.",
-        "Ethan Hayon became the first team member to earn Dean’s List Finalist.",
-        "Local business honors team with “Pi-oneer Sandwich.”",
-        "Mayors and town councils presented the team with proclamations for their\nsuccesses on and off the field.",
-        "Pi-oneer alumna Elizabeth Rosalia honored in NJ FIRST® Hall of Fame.",
-        "Montvale proclaims May 1 official “Pi-oneer Day.”"
-    ],
-    "2011": [
-        "Raised $5000+ for cancer research at Relay for Life; robot joined event.",
-        "Events: New Jersey Regional - Virginia Regional - FIRST World Championship - Newton Sub-Division",
-        "Began Postcards for Soldiers Campaign, sending thousands of thank you\npostcards and goods to soldiers.",
-        "Volunteered with Angels Among Us: Down Syndrome Association of the Hudson Valley.",
-        "Provided the webcast for the New Jersey Regional Competition.",
-        "Began International Outreach to FIRST® teams globally.",
-        "Introduced FIRST to a school in China, and encouraged them to start a robotics\nteam.",
-        "Robot, “Weeble,” was a contestant in Mr. Pascack Hills contest.",
-        "Sparked MSG Varsity feature on robotics, televising the NJ Regional Competition. It showed FIRST® as the “Sport of the Mind” ."
-    ],
-    "2012": [
-        "Attended girlPOWER off-season event.",
-        "Event: FIRST Mid-Atlantic District Championship - Mt. Olive FMA District - NYC\nRegional - Rutgers FMA District - FIRST World Championship - Archimedes\nDivision",
-        "Began mentoring Don Bosco Ironmen Team 4653 to Pi-Tech and Kickoff.",
-        "Provided the webcast for the MAR Rutgers District Event.",
-        "Created the “LEGOs & a Movie” fundraiser.",
-        "Published the Lily the Learner series.",
-        "Created Testing & Integration and Strategy Subdivisions to streamline\ncommunication and focus.",
-        "Created team contract and performance reviews to boost organization and\nefficiency.",
-        "Demonstrated robot at the NJ Science and Engineering Festival.",
-        "Team member Robert Levy inducted into N.J. FIRST Hall of Fame.\n• 2012-2013"
-    ],
-    "2013": [
-        "Began to create a robot to assist disabled children for the West Virginia\nUniversity Adapted Physical Education Program.",
-        "Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District\nChampionship - Mt. Olive FMA District - FIRST World Championship - Newton\nSub-Division",
-        "Continued volunteering for Angels Among Us.",
-        "Attended girlPOWER off season event.",
-        "Partnered with Hillsdale Library for FLL Jr. Summer Camp.",
-        "Started and mentored 3 FLL Jr. teams: 1 school, 2 libraries.",
-        "Championed FIRST® with postage stamp petition.",
-        "Began “Pi-Tech Academy,” educational video series for children, demonstrating\nscience concepts and experiments on YouTube. Added subtitled and translated\nall videos to engage a wider audience.",
-        "Began promoting the team through social media"
-    ],
-    "2014": [
-        "Celebrated Senior Citizens Day at Pascack Valley HS.",
-        "Events: Clifton FMA District - FIRST Mid-Atlantic District Championship -",
-        "Mt. Olive FMA District - FIRST World Championship - Curie Division",
-        "Shared WVU robot with disabled teens & adults at YJCC Westwood.",
-        "Attended girlPOWER off season event.",
-        "Mentored Ridgewood FIRST Showcase organizers on event organization, media,\nand demos.",
-        "Lily the Learner became a trilogy, expanded & translated in 6 languages. “Lily\nVisits a Farm” app educates on agritech.",
-        "Began attending the National Advocacy Conference in Washington, DC for\nSTEM in NJ.",
-        "App “Subdivision” created educational and robotics apps - “STEM Trivia”,\n“Generate My Project Schedule”, and “FRC Playmaker”."
-    ],
-    "2015": [
-        "Improved WVU robot based on YJCC feedback.",
-        "Events: Bridgewater-Raritan FMA District - Mt. Olive FMA District - FIRST Mid-\nAtlantic District Championship - Waterloo Regional - FIRST World Championship\n\n- Hopper Sub-Division",
-        "Launched Pi-Partners program to provide aid to developing/low-resource teams.\nFRC teams 4475, 5640, 5511",
-        "Hosted 2nd FLL Jr. Summer Camp at Hillsdale Library.",
-        "Participated in the 2nd Ridgewood FLL Showcase.",
-        "Hosted “FIRST® Break” movie fundraiser for the Make-A-Wish Foundation.",
-        "Began Pi-Buddies: program eases rookie transition with veteran guidance.",
-        "Began Project Manager program: cultivates leadership skills.",
-        "Designed games for exploring STEM careers - “STEM Career Cards” and “STEM\nLife”.",
-        "Hosted Young Manufacturers Academy from NJIT.",
-        "Honored as “District Defining” team 50th anniversary of PHHS.",
-        "Achieved Academic Varsity Letter status recognition as a FIRST® team.",
-        "Receiving an Academic Varsity Letter has inspired other academic teams in the\ndistrict to consider applying for varsity status as well.",
-        "Introduced FIRST to visiting Italian exchange students inspiring them to build a\nrobot for their science fair.",
-        "Bart Kamen Memorial Scholarship was awarded to team member Noah Shields.",
-        "Partnered with Team 3142 at the N.J. State Fair to demonstrate robots, meet with Congressman Garrett, and to promote Academic Varsity letter status for teams in FIRST®."
-    ],
-    "2016": [
-        "Volunteered at the Family Promise organization.",
-        "Events: Bridgewater-Raritan FMA District - Mt. Olive FMA District - Buckeye\nRegional - FIRST Mid-Atlantic District Championship - FIRST World\nChampionship - Newton Sub-Division",
-        "Attended girlPOWER off season event.",
-        "Pi-Partners expands to 6 teams. FRC teams 3339, 4475, 5640, 5655 5554",
-        "Team members volunteered in diverse roles at FTC North Jersey Championship\nat River Dell High School.",
-        "Continued FLL Jr. Summer Camp at River Vale Library.",
-        "Visited Orange & Rockland Utilities-CEO increased sponsorship after the visit,\nhelped 1676 launch new FRC team 6401, the 8-Bit Rams.",
-        "Held Arts in STEAM Night Out event, raised funds for robotics club in South\nAfrica.",
-        "Sold pretzels for travel funds with the Pi-Bank program.",
-        "Lily the Learner books reach 10 languages, available online & shipped\ninternationally.",
-        "Sponsor mentors provide valuable insights at weekly design reviews.",
-        "Established a New Jersey Advocacy Program for mentor-based STEAM\nprograms. Met with targeted schools to help set up programs.",
-        "Initiated by the team, the New Jersey Department of Education issued a $15,000\ngrant; titled “FIRST® Tech Challenge Mentoring Program - Bergen County Pilot”.\nThe Pi-oneers started and funded four FIRST® Tech Challenge teams for two\nyears.",
-        "Visited Hackensack Medical Center Tomorrow Children’s Institute: Demonstrated\nrobot, read Lily the Learner. Inspired by a patient, the team created Lily’s\nWorkshop, a portable dollhouse with a workshop setting.",
-        "Celebration of the Arts at Pascack Hills: Displayed a fusion of arts, tech &\nengineering fusion.",
-        "Ridgewood FIRST® Showcase (3rd year).",
-        "River Vale Science & Innovation Fair: Robot & STEAM demo.",
-        "Launched “Ready Set Speak” to help children with autism or apraxia of speech\nusing Applied Behavior Analysis. Developed from 2 team members’ idea with\nprofessional input.",
-        "Invited by Team 2468 for the first national FIRST® Robotics Signing Day."
-    ],
-    "2017": [
-        "Won St. Louis FIRST World Championship and FIRST® Festival of Champions.",
-        "Delivered the West Virginia University robot to benefit the Adaptive Physical\nEducation Program.",
-        "Events: Bridgewater-Raritan FMA District - Montgomery FMA District - FIRST\nMid-Atlantic District Championship - Southwest Virginia CHS District - FIRST\nWorld Championship- Einstein Field - FIRST Festival of Champions",
-        "Attended girlPOWER off season event.",
-        "Pi-Partners now include FRC Teams 4643, 6705; FTC Teams 7555, 8539.",
-        "Crafted an Arduino curriculum for the Sakhikamva Foundation in South Africa.",
-        "Teamed with businessman Premal Mehta to boost FIRST® in high schools in India",
-        "Gave a presentation for the National Advocacy Conference At the World\nChampionship. The team designed the NAC logo.",
-        "Pi-oneers in Varsity jackets featured in Dean Kamen’s Huffington Post article\nabout Sport for the MInd.",
-        "Created FIRST® Signing Day cards, distributed at events.",
-        "Partnered with N.J. State Assemblyman Ciattarelli to advocate for Bill S. 2398, which passed in Spring 2017. The bill recognizes interscholastic extracurricular activities and participants for Varsity Letter Status.",
-        "Launched India student exchange, hosting 16 students."
-    ],
-    "2018": [
-        "Collected 100+ STEAM toys for Toys for Tots.",
-        "Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District\nChampionship - Montgomery FMA District - Waterbury NE District - FIRST\nWorld Championship - Tesla Division",
-        "Supported the AMAZING Campaign - in support of an alumni’s suicide\nprevention program.",
-        "Attended girlPOWER off season event.",
-        "Enhanced Pi-oneer Scouting Network to allow input from other teams.",
-        "Mentored 4 rookie FTC teams with NJ DOE grant for 840 hours, partnered with\nFTC Team 207.",
-        "Mentored 6 FIRST® Robotics Competition teams.",
-        "Partnered with Orange & Rockland Utilities to create new FIRST® Robotics\nCompetition teams 6911 and 6969. In addition, we helped revive Team 1672, the\nRobo T-Birds, securing sponsors, mentors, and rookie coaches.",
-        "Provided volunteers and judges, streamed a webcast for the Hudson Valley\nRegional Competition event.",
-        "Gained a Diamond Sponsor & a mentor from Picatinny STEM.",
-        "Lily the Learner app showcases book in varied languages, gifted to visiting\nstudents.",
-        "Sent Lily the Learner books and workshops to Blue Star Families around the\nworld.",
-        "Pi-Tech Crossover Day fosters cross-training and understanding within the team.",
-        "The BMW Group, Rockland Electric, and NBC-Universal provide experienced\nmentors for the team.",
-        "District requested members to teach technology skills to Pascack Valley\nfreshmen.",
-        "Arts in STEAM Twitter account raises awareness of art & engineering crossover.",
-        "Ridgefield Coder Dojo: Pi-oneers present FIRST® and Team 1676.",
-        "Manhattan College: Robot demo at summer camp.",
-        "National Advocacy Conference & Presentation at Detroit World Championship..",
-        "National Robotics Week: School lobby display at Pascack Valley H. S.",
-        "NJ FIRST® advocacy: Meeting with Assemblyman Auth.",
-        "Improved and planned launch of “Ready Set Speak” website with professional\nhelp.",
-        "4 towns formally recognize the team’s achievements.",
-        "Congressman Gottheimer honors team with Signing Day letter.",
-        "Sara B. honored by Orange & Rockland at Yankee game.",
-        "Wood-Ridge Board of Ed honors team for Tech Challenge mentoring."
-    ],
-    "2019": [
-        "Built website, integrated “My GPS” for Awning stress management app.",
-        "Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District\nChampionship - Montgomery FMA District - Waterbury NE District - FIRST\nWorld Championship- Darwin Sub-Division",
-        "Collected 500+ pounds of food for local pantries with Interact Club.",
-        "Presented to the Gifted Child Society in Allendale NJ.",
-        "Sent 50+ pounds of toys and school supplies to Jamaican mission trip.",
-        "Showcased WVU robot, partnered with teacher for improved version.",
-        "Competed at Indianapolis Robotics Invitational.",
-        "Secured $1000 grant for Mahwah FRC Team 1672.",
-        "Continued sponsorship from Orange & Rockland for multiple FRC teams. O&R’s\ncumulative support totals $50,000.",
-        "Wrote Animation Guide for robotics animation divisions.",
-        "Wrote Sponsorship Guide for FIRST teams shared on team website.",
-        "Shared sample Summary Business Plan as guide for rookie FRC teams.",
-        "Wrote Rookie Bookie guide for new FTC teams shared on team website.",
-        "Donated backpacks to South African school (Sakhikamva Foundation).",
-        "Guided Ghanaian high school to launch FTC team.",
-        "Mentor traveled to India to spark FTC interest.",
-        "Guided Brazilian rookie FRC team 7567 Octopus, helped secure competition\nmaterials for them.",
-        "Partnered with the Coderina Foundation in Nigeria to mentor Nigerian FLL\nteams.",
-        "Formed relationship with Nigerian FLL coordinator, Olajide Ajayi, of the Coderina\nFoundation, after being introduced by South African FIRST coordinator\nJohannes DeVries.",
-        "Implemented Project Groups to manage multiple outreach programs.",
-        "Pioneered team Wellness Initiative, with a focus on mental well-being. Shared\nmental health resources at competitions.",
-        "Visited the Holdrum STEM Academy, discussed incorporating programming and\nFIRST® into district elementary schools.",
-        "Inspired youth at Holdrum Middle School Science Fair.",
-        "LEGOs & a Movie “Destination Space”, promoting 2018-2019 FIRST® theme.",
-        "LEGOs & a Movie Girls Who Build: Building & coding for National CSE Week.",
-        "National Advocacy Conference Committee (5th year): Distributing info at\ncompetitions.",
-        "Presented FLL, FIRST®, our robot & Lily the Learner (Spanish & ESL) at Nellie\nParker Elementary School.",
-        "Attended Picatinny Arsenal “Introduce a Girl to Engineering” Event.",
-        "Pi-oneers represent FIRST® at Ridgewood Super Science Saturday."
-    ],
-    "2020": [
-        "Brought Awning app to district health classes.",
-        "Virtual Events: Mt. Olive FMA District - FIRST Mid-Atlantic District Championship",
-        "Created PVHS school dashboard, hosted Camp Raspberry website.",
-        "Guided district’s new robotics class curriculum.",
-        "Appeared in the Pascack Valley Lip Dub, which received over 31,000 views.",
-        "Merged “My GPS” team app with Awning app.",
-        "Shared robot and “Lily the Learner” at Children’s Cancer Institute.",
-        "Presented and demonstrated the robot at PV’s Senior Citizen Day.",
-        "Expanded Rookie Bookie with 50 new pages.",
-        "Working with Team 75, gave first aid kits to all Mid-Atlantic FRC teams.",
-        "Assisted and collaborated with FRC teams 223, 1672, 2614, 3314, 4653 with\nmechanics, organization, safety, and outreach.",
-        "Pre-COVID, hosted Kickoff event with 200 attendees, including other FRC teams.",
-        "Made online safety training videos for FRC teams.",
-        "Printed Personal Emergency Cards for 7 FRC teams.",
-        "Observed robotic surgery, discussed medical robotics at Hackensack University\nMedical Center.",
-        "Launched & mentored 3 Nigerian FTC teams, hosted Student Exchange.",
-        "South Africa: Mentored 3 FTC teams.",
-        "Blended creativity and science at “Arts in STEAM Night Out” event.",
-        "Mentored 5 local FTC teams.- Bectobots 13617, RoboRams 13615, Spartans\n12309, RoboRebels 14450, The Frisch CouGears 15762.",
-        "Created LEGOs & a Movie: Day at the Races. Fostered teamwork with LEGO car\nracing challenge.",
-        "Guided 7 local FLL teams to success.",
-        "Hosted and broadcast FLL Bergen Brickfest Qualifying Tournament.",
-        "Launched “Fall for STEAM” Fair, engaging 200+ students.",
-        "Rebranded LEGOs & a Movie: Girls who Build into LEGOs & a Movie: Girls who\nBuild and Code",
-        "Covid: Donated intubation boxes to hospitals/ambulance corps for safer patient\ncare.",
-        "Covid: Provided 3D printed mask straps & thank-you messages to ShopRite\nessential workers.",
-        "Covid: “White Ribbons for Hope” campaign to unite community and essential\nworkers.",
-        "Expanded “Ready Set Speak!” website to Spanish for broader impact.",
-        "New Twitter account: @Team1676Safety for sharing safety tips."
-    ],
-    "2021": [
-        "Collected 2200 pounds of food for local pantries; featured in the Pascack Press.",
-        "Events: Virtual FIRST Mid-Atlantic District Championship - Mt. Olive FMA District",
-        "Covid: Printed 1,117 mask straps for essential workers.",
-        "Covid: Created virtual edition of LEGOs & Story for pediatric cancer patients at\nMemorial Sloan Kettering Hospital.",
-        "Redesigned Hills-Valley Coalition’s website & logo.",
-        "Covid: Made and donated 425 masks to seniors, food pantries and healthcare\nworkers.",
-        "Tweeted safety tips on #SafetySaturday & #WellnessWednesdays.\n",
-        "Covid: Supported Saint Mary’s Hospital frontline workers with mask straps.\nDesigned logo for a tribute t-shirt.",
-        "Virtual meetings to offer FRC teams advice on virtual leadership and\nmanagement and encouraged community projects.",
-        "Covid: Collaborated with FTC Team 6547 the Cobalt Colts to donate face\nshields to River Vale police.",
-        "Assembled and mailed LEGO trophies along with first aid kits to advancing\nteams",
-        "Covid: Conducted virtual FLL Bergen Brickfest Qualifying Tournament providing\nreferee training and kits.",
-        "Mentored Team 7672 from Turkey and assisted Brazilian FRC Team 7567 with\nthe English translations of their written submissions.",
-        "Working with Team 1595, shared insights on designs and awards with Chinese\nFRC teams.",
-        "South Africa: Deepened Sakhikamva partnership, mentoring 3 FTC teams.",
-        "Celebrated Pi-Day with 3 local libraries with displays, held career talks, and a pie\ncontest.",
-        "Created a library of engaging STEAM videos with students.",
-        "Covid: Adapted LEGOs & a Story to a virtual format.",
-        "Launched and hosted the interactive STEAM Career Exploration Series.",
-        "Covid: Launched Family Coding Night - a virtual event where young\nprogrammers work with their families and Pi-oneers to learn coding.",
-        "Covid: Pivoted to virtual, team delivered interactive STEAM Fair boxes\ncontaining interactive projects for participants to do with their families.",
-        "Created a list of Covid-19 precautions for working indoors, and shared it with\nour Mentored FTC Teams, along with our Safety Contract.",
-        "Built food pantry donation boxes for ShopRite. Collected 2400 pounds of food in\ntwo food drives."
-    ],
-    "2022": [
-        "2022 merged with 2021",
-        "Events: Bridgewater-Raritan FMA District - Montgomery FMA District - Tech\nValley Regional - FIRST Mid-Atlantic District Championship - FIRST World\nChampionship – Newton Division",
-        "Partnering with the PHHS Medical Club, the team hosted a Red Cross Blood\nDrive to address national blood shortage.",
-        "Added FIRST® Core Values to Rookie Bookie.",
-        "Covid: Hosted 13th FLL Bergen Brickfest remotely, creating and mailing LEGO\ntrophies to winning teams.",
-        "Safety collaboration with FRC Team 75 to distribute first aid kits to all FIRST\nMid-Atlantic teams.",
-        "Advocated for National FIRST® Robotics Day with Team 2338, and solicited NJ\nAssemblyman Gottheimer as co-sponsor.",
-        "Mentored Local FTC Teams 15762 Frisch CouGears (won the Think Award) and\n13617 Bectobots.",
-        "Mentored FTC Teams 18140 Texas T.B.D., 18172 Florida Uplift Robotics, and\n19367 Wisconsin ALIEN, who won the Connect Award and Motivate Award.",
-        "Mentored FRC Teams 3314 Mechanical Mustangs and 223 Xtreme Heat.",
-        "Local FIRST Outreach: Continued mentorship of all 5 the FLL teams in our\nschool district.",
-        "Collected LEGOs by conducting a “LEGO Wars” competition at schools. Grades\ncompeted for most bulk collection and best model creation.",
-        "Updated web scouting program.",
-        "Ireland: Exploring future FTC partnership with the Coderina Foundation.",
-        "Nigeria: Continued partnership with the Coderina Foundation. Mentored rookie\nall-girls FTC Team 19512 to win an Inspire Award, met them at the World\nChampionship.",
-        "Singapore: Mentored FRC team 8540.",
-        "Taiwan: Mentored FRC Team 8790 to win a Rookie All-Star award at New Taipei\nCity Regional.",
-        "Turkey: Mentored FRC Team 7672, assisted with their logo.",
-        "South Africa: Continued partnership with the Sakhikamva Foundation. Mentored\nFTC Teams 19001 (Think Award), 19002, and 22834. Provided 52 lbs of LEGOs\nfor LEGOs & a Story event, which we shared with them.",
-        "Restarted in-person STEAM Fair.",
-        "Supported teams through Pi-Partners: FLL Team Phoenix (LA), FRC Team\n6059 System Overload (CA), FRC Team 568 Nerds of the North (AK). Helped\nBridgewater-Raritan FRC Team 303 The Test Team (NJ) recover from the loss of\ntheir workshop and equipment."
-    ],
-    "2023": [
-        "Built a food pantry collection bin for Kings supermarket.",
-        "FMA Warren Hills - Mt. Olive FMA District - FIRST Mid Atlantic District\nChampionship - FIRST World Championship Johnson Division Finalist",
-        "Collected 1500 pounds of food for local pantries in two food drives.",
-        "50 people donated at the Red Cross Blood drive, partnering with the Pascack\nHills Medical Club.",
-        "Returned FLL Bergen Brickfest Qualifying Tournament to in-person.",
-        "Shared Ready Set Speak with FTC Team 58 in Haiti. Partnered with PV French\nHonor Society to translate the program into French.",
-        "Continued mentorship of FTC Team 19152 TechnoBots in Nigeria in partnership\nwith the Coderina Foundation.",
-        "Continued mentorship of 4 FTC teams in South Africa in partnership with the\nSakhikamva Foundation.",
-        "Participated in FIRST Outreach at STEM Day at Rockland Boulders Baseball\nStadium.",
-        "Visited team sponsors Crestron and NBC/Universal.",
-        "Continued to support National FIRST bggRobotics day in partnership with FRC\nTeam 2338."
-    ],
-    "2024": [
-        "Dean’s List Semi-Finalist: Giulia DiSalvo",
-        "FMA District Impact Award Winner",
-        "FIRST Mid-Atlantic District Event Winner",
-        "FIRST World Championship Galileo Division – Captain of Alliance 7",
-        "Awarded three scholarships to three seniors",
-        "STEAM Fair",
-        "Held 15th FLL Bergen Brickfest",
-        "Held FIRST Signing Day & supported it at competitions",
-        "Participated in STEM Day at Boulder Stadium",
-        "Held the annual Red Cross Blood Drive",
-        "Updated the Rookie Bookie",
-        "Continued all LEGOs & a Movie events",
-        "Participated in STEM Day at Boulder Stadium",
-        "Appeared on WCTV"
-    ],
-    "2025": [
-        "Since March 2024, collected 8,000 lbs of food for local food pantries",
-        "Held 5th annual Valentine’s Day Food Drive",
-        "Created and hosted Food Pantry Day at ShopRite",
-        "Pi-Partner Program - Haiti",
-        "Visited team sponsor NBC/Universal,also Chromalloy",
-        "Held the annual STEAM Fair with new activities",
-        "Translated Ready, Set, Speak to Haitian French with EduCare Haiti FGC",
-        "Helped to start FRC RoboRhinos in South Africa",
-        "Helped to start 4 new FTC teams in South Africa",
-        "Began mentoring FRC Team Kaizen in India",
-        "Began mentoring FTC Team Adujurat Tech Titans in India",
-        "Began mentoring FRC Team Root Lotus in Turkey",
-        "Began mentoring FTC Team Cyber Huskies in NJ",
-        "Wrote the Academic Varsity Letter Application Guide",
-        "Updated the Rookie Bookie",
-        "Updated the Animation Guide"
-    ]
-};
-
-const CATEGORY_PRIORITY = ["Awards", "Projects", "Outreach", "Impact", "Robot"];
-
-const CATEGORY_KEYWORDS = {
-    Awards: {
-        strong: [
-            "award", "winner", "finalist", "champion", "championship", "dean", "scholarship",
-            "hall of fame", "impact award", "think award", "connect award", "motivate award",
-            "inspire award", "all-star", "world championship", "festival of champions", "einstein",
-            "division", "regional", "district"
-        ],
-        weak: ["tournament", "qualifying"],
-        weight: { strong: 4, weak: 2 }
+const historyDB = {
+    "2004": {
+        Projects: ["Hills & Valley in Panasonic Design Challenge"],
+        Awards: [],
+        Impact: [],
+        Robot: []
     },
-    Projects: {
-        strong: [
-            "lily", "ready set speak", "awning", "my gps", "rookie bookie", "pi-tech", "pi-bank",
-            "academy", "animation guide", "sponsorship guide", "summary business plan",
-            "academic varsity letter application guide", "dashboard", "design challenge"
-        ],
-        weak: ["app", "website", "guide", "book", "series", "curriculum", "database", "tutorial", "video"],
-        weight: { strong: 4, weak: 2 }
+    "2005": {
+        Projects: ["Matt Hayon, Pascack Valley Class of 2005, and Pascack Hills teacher, Phil Paspalas, create Team 1676."],
+        Awards: [],
+        Impact: [],
+        Robot: []
     },
-    Outreach: {
-        strong: [
-            "food", "pantry", "blood", "donat", "collected", "fundraiser", "volunteer",
-            "relay for life", "red cross", "shoprite", "tots", "toy", "camp", "fair", "festival",
-            "parade", "library", "drive", "story", "movie", "steam fair"
-        ],
-        weak: ["students", "children", "seniors", "community", "school", "day"],
-        weight: { strong: 3, weak: 1 }
+    "2006": {
+        Projects: [],
+        Awards: [],
+        Impact: ["Assisted NJIT kickoff with kit distribution & cleanup."],
+        Robot: ["Events: New Jersey Regional - Palmetto Regional."]
     },
-    Impact: {
-        strong: [
-            "mentor", "mentored", "mentoring", "partnership", "partnered", "collaborated",
-            "advocated", "advocacy", "grant", "sponsor", "sponsorship", "proclaim", "proclaimed",
-            "recognized", "honored", "featured", "exchange", "launched", "started", "expanded",
-            "established", "helped"
+    "2007": {
+        Projects: [
+            "Launched an online scouting database for robotics.",
+            "Wrote the first business plan."
         ],
-        weak: ["supported"],
-        weight: { strong: 2, weak: 1 }
+        Awards: [
+            "Won Rookie All-Star Award.",
+            "Won NJ FIRST® Vex Challenge!"
+        ],
+        Impact: [
+            "Flood cleanup aid in River Vale.",
+            "Began promoting STEAM and FIRST® at town days and parades.",
+            "Started and mentored River Vale FLL team.",
+            "Began hosting the FLL Bergen Qualifying Tournament."
+        ],
+        Robot: ["Events: Buckeye Regional - FIRST Vex Challenge Garden State Rumble."]
     },
-    Robot: {
-        strong: [
-            "robot", "robotics", "kickoff", "kit", "scouting", "webcast", "autodesk",
-            "inventor", "competition", "competed", "demo", "demonstrated"
+    "2008": {
+        Projects: [
+            "Began to create a robot to assist disabled children for the West Virginia University Adapted Physical Education Program.",
+            "Built website, integrated \"My GPS\" for Awning stress management app."
         ],
-        weak: ["programming", "code", "build"],
-        weight: { strong: 2, weak: 1 }
+        Awards: ["Won St. Louis FIRST World Championship and FIRST® Festival of Champions."],
+        Impact: [
+            "Raised $5000+ for cancer research at Relay for Life; robot joined event.",
+            "Attended girlPOWER off-season event.",
+            "Celebrated Senior Citizens Day at Pascack Valley HS.",
+            "Volunteered at the Family Promise organization.",
+            "Collected 100+ STEAM toys for Toys for Tots.",
+            "Collected 2200 pounds of food for local pantries; featured in the Pascack Press."
+        ],
+        Robot: ["Events: Greater Toronto Regional - New Jersey Regional - FIRST World Championship - Galileo Division."]
+    },
+    "2009": {
+        Projects: [
+            "Improved WVU robot based on YJCC feedback.",
+            "Delivered the West Virginia University robot to benefit the Adaptive Physical Education Program.",
+            "Showcased WVU robot, partnered with teacher for improved version."
+        ],
+        Awards: [],
+        Impact: [
+            "Attended girlPOWER off-season event.",
+            "Shared WVU robot with disabled teens & adults at YJCC Westwood."
+        ],
+        Robot: ["Events: Palmetto Regional - FIRST World Championship - Galileo Division."]
+    },
+    "2010": {
+        Projects: [
+            "Brought Awning app to district health classes.",
+            "Merged \"My GPS\" team app with Awning app."
+        ],
+        Awards: ["Ethan Hayon became the first team member to earn Dean's List Finalist."],
+        Impact: [],
+        Robot: [
+            "Events: New Jersey Regional - Virginia Regional - FIRST World Championship - Curie Division.",
+            "Competed in NJ Regional and FIRST World Championship."
+        ]
+    },
+    "2011": {
+        Projects: [
+            "Created Autodesk Inventor tutorial for N.J. Regional teams.",
+            "Taught Autodesk Inventor at N.J. Regional competition."
+        ],
+        Awards: [],
+        Impact: [],
+        Robot: ["Events: New Jersey Regional - Virginia Regional - FIRST World Championship - Newton Sub-Division."]
+    },
+    "2012": {
+        Projects: ["Created PVHS school dashboard, hosted Camp Raspberry website."],
+        Awards: [],
+        Impact: [],
+        Robot: [
+            "Event: FIRST Mid-Atlantic District Championship - Mt. Olive FMA District - NYC Regional - Rutgers FMA District - FIRST World Championship - Archimedes Division.",
+            "Competed at Brunswick Eruption off-season event."
+        ]
+    },
+    "2013": {
+        Projects: [
+            "Launched Pi-Partners program to provide aid to developing/low-resource teams. FRC teams 4475, 5640, 5511.",
+            "Pi-Partner Program - Haiti.",
+            "Launched New Parent Meetings.",
+            "Empowered girls in robotics hosting a Girl Scout program.",
+            "Started and mentored the Woodcliff Lake FLL team.",
+            "Started and mentored the Montvale FLL team.",
+            "Created the \"LEGOs & a Movie\" fundraiser.",
+            "Partnered with Hillsdale Library for FLL Jr. Summer Camp.",
+            "Published the Lily the Learner series.",
+            "Started and mentored 3 FLL Jr. teams: 1 school, 2 libraries.",
+            "Crafted an Arduino curriculum for the Sakhikamva Foundation in South Africa.",
+            "Pi-Partners expands to 6 teams. FRC teams 3339, 4475, 5640, 5655, 5554.",
+            "Pi-Partners now include FRC Teams 4643, 6705; FTC Teams 7555, 8539.",
+            "Enhanced Pi-oneer Scouting Network to allow input from other teams.",
+            "Added FIRST® Core Values to Rookie Bookie."
+        ],
+        Awards: ["FIRST World Championship Galileo Division – Captain of Alliance 7."],
+        Impact: [
+            "Attended girlPOWER off-season event.",
+            "Collected 500+ pounds of food for local pantries with Interact Club.",
+            "Began Hillsdale Food Pantry food drives and donations.",
+            "Presented to the Gifted Child Society in Allendale NJ.",
+            "Guided district's new robotics class curriculum.",
+            "50 people donated at the Red Cross Blood drive, partnering with the Pascack Hills Medical Club."
+        ],
+        Robot: [
+            "Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District Championship - Mt. Olive FMA District - FIRST World Championship - Newton Sub-Division.",
+            "Mt. Olive FMA District - FIRST World Championship - Curie Division."
+        ]
+    },
+    "2014": {
+        Projects: [
+            "Began Pi-Buddies: program eases rookie transition with veteran guidance.",
+            "Introduced FIRST to a school in China, and encouraged them to start a robotics team.",
+            "Created Testing & Integration and Strategy Subdivisions to streamline communication and focus.",
+            "Championed FIRST® with postage stamp petition.",
+            "Lily the Learner became a trilogy, expanded & translated in 6 languages. \"Lily Visits a Farm\" app educates on agritech.",
+            "Began \"Pi-Tech Academy,\" educational video series for children, demonstrating science concepts and experiments on YouTube. Added subtitled and translated all videos to engage a wider audience.",
+            "Began attending the National Advocacy Conference in Washington, DC for STEM in NJ.",
+            "Began Project Manager program: cultivates leadership skills.",
+            "Held Arts in STEAM Night Out event, raised funds for robotics club in South Africa.",
+            "Gave a presentation for the National Advocacy Conference at the World Championship. The team designed the NAC logo.",
+            "Launched the annual Pi-oneer Senior Scholarships.",
+            "Created team contract and performance reviews to boost organization and efficiency."
+        ],
+        Awards: ["Dean's List Semi-Finalist: Giulia DiSalvo."],
+        Impact: [
+            "Held the annual STEAM Fair with new activities.",
+            "Collaborated with Computer Outreach, a non-profit that donates computers to underprivileged children.",
+            "Began annual Car Wash Fundraiser with mentored FLL teams.",
+            "Supported the AMAZING Campaign - in support of an alumni's suicide prevention program."
+        ],
+        Robot: [
+            "Events: Clifton FMA District - FIRST Mid-Atlantic District Championship.",
+            "Events: Bridgewater-Raritan FMA District - Mt. Olive FMA District - FIRST Mid-Atlantic District Championship - Waterloo Regional - FIRST World Championship - Hopper Sub-Division."
+        ]
+    },
+    "2015": {
+        Projects: [
+            "Updated the Rookie Bookie.",
+            "Wrote Animation Guide for robotics animation divisions.",
+            "Wrote Sponsorship Guide for FIRST teams shared on team website.",
+            "Wrote Rookie Bookie guide for new mentored FTC teams shared on team website.",
+            "Made online safety training videos for FRC teams."
+        ],
+        Awards: ["FIRST Mid-Atlantic District Event Winner."],
+        Impact: ["Held the annual Red Cross Blood Drive."],
+        Robot: ["Events: Bridgewater-Raritan FMA District - Mt. Olive FMA District - Buckeye Regional - FIRST Mid-Atlantic District Championship - FIRST World Championship - Newton Sub-Division."]
+    },
+    "2016": {
+        Projects: ["Updated web scouting program."],
+        Awards: [],
+        Impact: [],
+        Robot: ["Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District Championship - Montgomery FMA District - Waterbury NE District - FIRST World Championship - Tesla Division."]
+    },
+    "2017": {
+        Projects: [
+            "Launched \"Ready Set Speak\" to help children with autism or apraxia of speech using Applied Behavior Analysis. Developed from 2 team members' idea with professional input.",
+            "Shared Ready Set Speak with FTC Team 58 in Haiti. Partnered with PV French Honor Society to translate the program into French."
+        ],
+        Awards: [],
+        Impact: [
+            "Held 5th annual Valentine's Day Food Drive.",
+            "Built a food pantry collection bin for Kings supermarket.",
+            "Created and hosted Food Pantry Day at ShopRite.",
+            "Collected 1500 pounds of food for local pantries in two food drives."
+        ],
+        Robot: ["Events: Bridgewater-Raritan FMA District - FIRST Mid-Atlantic District Championship - Montgomery FMA District - Waterbury NE District - FIRST World Championship - Darwin Sub-Division."]
+    },
+    "2018": {
+        Projects: ["Updated the Animation Guide."],
+        Awards: [],
+        Impact: [],
+        Robot: ["Virtual Events: Mt. Olive FMA District - FIRST Mid-Atlantic District Championship."]
+    },
+    "2019": {
+        Projects: ["Expanded \"Ready Set Speak!\" website to Spanish for broader impact."],
+        Awards: [],
+        Impact: [],
+        Robot: []
+    },
+    "2020": {
+        Projects: [
+            "Covid: Created virtual edition of LEGOs & Story for pediatric cancer patients at Memorial Sloan Kettering Hospital.",
+            "Covid: Adapted LEGOs & a Story to a virtual format."
+        ],
+        Awards: [],
+        Impact: [
+            "Covid: Printed 1,117 mask straps for essential workers.",
+            "Covid: Made and donated 425 masks to seniors, food pantries and healthcare workers.",
+            "Covid: Supported Saint Mary's Hospital frontline workers with mask straps. Designed logo for a tribute t-shirt.",
+            "Covid: Donated intubation boxes to hospitals/ambulance corps for safer patient care.",
+            "Covid: Provided 3D printed mask straps & thank-you messages to ShopRite essential workers.",
+            "Covid: \"White Ribbons for Hope\" campaign to unite community and essential workers.",
+            "Safety collaboration with FRC Team 75 to distribute first aid kits to all FIRST Mid-Atlantic teams."
+        ],
+        Robot: ["Virtual events context (limited due to Covid)."]
+    },
+    "2021": {
+        Projects: [],
+        Awards: [],
+        Impact: [
+            "Partnering with the PHHS Medical Club, the team hosted a Red Cross Blood Drive to address national blood shortage.",
+            "Continued volunteering for Angels Among Us.",
+            "Volunteered with Angels Among Us: Down Syndrome Association of the Hudson Valley.",
+            "Began Postcards for Soldiers Campaign, sending thousands of thank you postcards and goods to soldiers."
+        ],
+        Robot: ["Events: Virtual FIRST Mid-Atlantic District Championship - Mt. Olive FMA District."]
+    },
+    "2022": {
+        Projects: [],
+        Awards: ["FMA District Impact Award Winner."],
+        Impact: ["Collected 2400 pounds of food in two food drives."],
+        Robot: ["Events: Bridgewater-Raritan FMA District - Montgomery FMA District - Tech Valley Regional - FIRST Mid-Atlantic District Championship - FIRST World Championship – Newton Division."]
+    },
+    "2023": {
+        Projects: [],
+        Awards: [
+            "FMA District Impact Award Winner.",
+            "FIRST World Championship Johnson Division Finalist."
+        ],
+        Impact: [],
+        Robot: ["FMA Warren Hills - Mt. Olive FMA District - FIRST Mid Atlantic District Championship - FIRST World Championship Johnson Division Finalist."]
+    },
+    "2024": {
+        Projects: [],
+        Awards: [],
+        Impact: [
+            "Since March 2024, collected 8,000 lbs of food for local food pantries.",
+            "Built food pantry donation boxes for ShopRite."
+        ],
+        Robot: ["Events: Bridgewater-Raritan FMA District - Montgomery FMA District - FIRST Mid-Atlantic District Championship - Southwest Virginia CHS District - FIRST World Championship - Einstein Field - FIRST Festival of Champions."]
+    },
+    "2025": {
+        Projects: [],
+        Awards: [],
+        Impact: [],
+        Robot: []
+    },
+    "2026": {
+        Projects: [],
+        Awards: [],
+        Impact: [],
+        Robot: []
     }
 };
 
+// --- CATEGORY STYLING ---
+// Colors and glow effects for each category (4 categories only)
 const CATEGORY_ACCENTS = {
     Projects: { color: "#f6b25a", glow: "rgba(246, 178, 90, 0.35)" },
     Awards: { color: "#ffd166", glow: "rgba(255, 209, 102, 0.35)" },
     Impact: { color: "#5cd6b5", glow: "rgba(92, 214, 181, 0.35)" },
-    Robot: { color: "#6ca9ff", glow: "rgba(108, 169, 255, 0.35)" },
-    Outreach: { color: "#ff7b5d", glow: "rgba(255, 123, 93, 0.35)" }
+    Robot: { color: "#6ca9ff", glow: "rgba(108, 169, 255, 0.35)" }
 };
 
-function scoreCategory(text, rules) {
-    let score = 0;
-    rules.strong.forEach((keyword) => {
-        if (text.includes(keyword)) score += rules.weight.strong;
-    });
-    rules.weak.forEach((keyword) => {
-        if (text.includes(keyword)) score += rules.weight.weak;
-    });
-    return score;
-}
-
-function classifyEvent(text) {
-    const normalized = text.toLowerCase().trim();
-
-    if (/^events?:/.test(normalized)) {
-        return "Awards";
-    }
-
-    let maxScore = 0;
-    const scores = {};
-
-    Object.entries(CATEGORY_KEYWORDS).forEach(([category, rules]) => {
-        const score = scoreCategory(normalized, rules);
-        scores[category] = score;
-        if (score > maxScore) maxScore = score;
-    });
-
-    if (maxScore === 0) {
-        return "Impact";
-    }
-
-    const candidates = Object.entries(scores)
-        .filter(([, score]) => score == maxScore)
-        .map(([category]) => category);
-
-    for (const category of CATEGORY_PRIORITY) {
-        if (candidates.includes(category)) return category;
-    }
-
-    return candidates[0];
-}
-
-function buildHistoryDB(rawData) {
-    const db = {};
-
-    Object.entries(rawData).forEach(([year, events]) => {
-        db[year] = { Projects: [], Awards: [], Impact: [], Robot: [], Outreach: [] };
-        events.forEach((eventText) => {
-            const category = classifyEvent(eventText);
-            db[year][category].push(eventText);
-        });
-    });
-
-    return db;
-}
-
-const historyDB = buildHistoryDB(rawTimelineData);
-
+// --- MAIN APPLICATION ---
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURATION ---
     const startYear = 2004;
     const endYear = 2026;
-    const baseCategories = ["Projects", "Awards", "Impact", "Robot", "Outreach"];
+    
+    // Only 4 categories now
+    const baseCategories = ["Projects", "Awards", "Impact", "Robot"];
 
-    // REPEAT Categories 3 times (15 items)
-    const categories = [...baseCategories, ...baseCategories, ...baseCategories];
+    // REPEAT Categories 4 times (16 items) for fuller wheel appearance
+    const categories = [...baseCategories, ...baseCategories, ...baseCategories, ...baseCategories];
 
     // --- DOM ELEMENTS ---
     const container = document.getElementById('timelineContainer');
@@ -519,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDragEvents();
     initInstructions();
 
-    // Initial Fetch
+    // Initial content display
     updateContent();
 
     // --- INSTRUCTIONS OVERLAY ---
@@ -549,16 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
         function dismissInstructions() {
             overlay.classList.add('hidden');
             localStorage.setItem('pilineInstructionsSeen', 'true');
-            // Add class back so CSS hides it on refresh
             document.documentElement.classList.add('instructions-seen');
             setTimeout(() => overlay.style.display = 'none', 400);
         }
 
         function showInstructions() {
-            // Remove the class that hides the overlay via CSS
             document.documentElement.classList.remove('instructions-seen');
             overlay.style.display = 'flex';
-            // Force reflow
             void overlay.offsetWidth;
             overlay.classList.remove('hidden');
         }
@@ -577,7 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
             item.dataset.value = year;
 
             const itemAngle = 90 + (i * state.years.anglePerItem);
-
             placeItem(item, itemAngle, state.years.radius);
 
             item.addEventListener('click', (e) => {
@@ -604,7 +415,6 @@ document.addEventListener('DOMContentLoaded', () => {
             item.dataset.value = cat;
 
             const itemAngle = 90 + (i * state.categories.anglePerItem);
-
             placeItem(item, itemAngle, state.categories.radius);
 
             item.addEventListener('click', (e) => {
@@ -723,7 +533,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const targetRotation = roundedIndex * -s.anglePerItem;
 
-        // Normalize index for state
         const total = s.total;
         const normalizedIndex = ((roundedIndex % total) + total) % total;
 
@@ -731,7 +540,6 @@ document.addEventListener('DOMContentLoaded', () => {
         s.currentIndex = normalizedIndex;
         s.element.style.transform = `rotate(${targetRotation}deg)`;
 
-        // Find the item at this index to get its real value
         const items = s.element.querySelectorAll(type === 'years' ? '.year-item' : '.category-item');
         items.forEach(item => {
             if (parseInt(item.dataset.index) === normalizedIndex) {
@@ -742,7 +550,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateActiveClasses(type, targetRotation);
 
-        // Debounce the content update
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(updateContent, 500);
     }
@@ -756,8 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- SHARED UTILS ---
-
+    // --- SHARED UTILITIES ---
     function placeItem(element, angleDeg, radius) {
         const angleRad = angleDeg * (Math.PI / 180);
         const x = 50 + (radius * Math.cos(angleRad));
@@ -824,8 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- CONTENT LOGIC ---
-
+    // --- CONTENT DISPLAY LOGIC ---
     function splitEventText(text) {
         const trimmed = text.trim();
         const colonIndex = trimmed.indexOf(':');
@@ -878,17 +683,14 @@ document.addEventListener('DOMContentLoaded', () => {
         timelineContainer.className = 'main-timeline';
 
         events.forEach((eventText, index) => {
-            // Container for this item
             const itemContainer = document.createElement('div');
             itemContainer.className = 'main-timeline-item';
             itemContainer.style.setProperty('--item-delay', `${Math.min(index * 0.05, 0.4)}s`);
 
-            // 1. The Dot/Node on the line
             const node = document.createElement('div');
             node.className = 'main-time-node';
             node.innerText = index + 1;
 
-            // 2. The Event Card
             const card = document.createElement('article');
             card.className = 'main-event-card';
 
@@ -905,9 +707,8 @@ document.addEventListener('DOMContentLoaded', () => {
             textEl.innerText = body;
             card.appendChild(textEl);
 
-            // Click to open modal
             card.addEventListener('click', () => {
-                openTimelineModal(eventText); // Changed from openModal(year, category, eventText) to match existing modal logic
+                openTimelineModal(eventText);
             });
 
             itemContainer.appendChild(node);
@@ -918,8 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentBody.appendChild(timelineContainer);
     }
 
-    // --- MODAL & SEARCH LOGIC ---
-
+    // --- MODAL LOGIC ---
     const modal = document.getElementById("topicModal");
     const span = document.getElementsByClassName("close-button")[0];
     const modalTitle = document.getElementById("modalTitle");
@@ -944,21 +744,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openTimelineModal(text) {
         modal.style.display = "block";
-        // Force reflow
         void modal.offsetWidth;
         modal.classList.add('show');
 
         const metadata = extractMetadata(text);
         const relatedEvents = findRelatedEvents(metadata, text);
 
-        // Pick top concepts or keywords for title
         let titleTerms = metadata.concepts;
         if (titleTerms.length === 0) {
             titleTerms = metadata.keywords.slice(0, 3);
         }
 
         const titleString = titleTerms.map(t =>
-            // Capitalize first letter of each word for display
             t.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
         ).join(", ");
 
@@ -967,8 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTimeline(relatedEvents);
     }
 
-    // --- ADVANCED SEARCH ALGORITHM ---
-
+    // --- SEARCH CONCEPTS ---
     const CONCEPTS = [
         // Projects
         "Lily the Learner", "Ready Set Speak", "Awning", "My GPS", "Rookie Bookie", "STEM Career Cards",
@@ -996,14 +792,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const lowerText = text.toLowerCase();
         const foundConcepts = new Set();
 
-        // 1. Check for specific Multi-word Concepts
         CONCEPTS.forEach(concept => {
             if (lowerText.includes(concept.toLowerCase())) {
-                foundConcepts.add(concept); // Store original casing for display if needed
+                foundConcepts.add(concept);
             }
         });
 
-        // 2. Extract standard keywords
         const stopWords = new Set([
             "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with", "by", "from",
             "up", "down", "is", "was", "were", "are", "be", "has", "have", "had", "it", "its", "that", "this",
@@ -1035,26 +829,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const results = [];
         const { concepts: srcConcepts, keywords: srcKeywords } = sourceMetadata;
 
-        // Weights
         const CONCEPT_WEIGHT = 10;
         const KEYWORD_WEIGHT = 1;
-        const MIN_SCORE = 2; // Threshold to show
+        const MIN_SCORE = 2;
 
         for (const [year, categories] of Object.entries(historyDB)) {
             for (const [cat, eventList] of Object.entries(categories)) {
                 eventList.forEach(eventText => {
-                    // Skip exact logic if desired, but self-match is actually sometimes good context
-                    // if (eventText === sourceText) return; 
-
                     const targetMetadata = extractMetadata(eventText);
 
                     let score = 0;
                     const matchedTerms = [];
 
-                    // Score Concepts
                     srcConcepts.forEach(c => {
-                        // Check if target has this concept (case-insensitive done in extract)
-                        // Actually extractMetadata returns original casing, so we compare simply or re-lower
                         const hasConcept = targetMetadata.concepts.some(tc => tc.toLowerCase() === c.toLowerCase());
                         if (hasConcept) {
                             score += CONCEPT_WEIGHT;
@@ -1062,13 +849,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
 
-                    // Score Keywords
                     srcKeywords.forEach(k => {
                         if (targetMetadata.keywords.includes(k)) {
                             score += KEYWORD_WEIGHT;
-                            // Only add to matched terms if not already covered by a concept
-                            // Simple heuristic: if term is part of a matched concept, ignore? 
-                            // For simplicity, just add.
                             matchedTerms.push(k);
                         }
                     });
@@ -1086,7 +869,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Sort by Score DESC, then Year DESC
         return results.sort((a, b) => {
             if (b.score !== a.score) return b.score - a.score;
             return parseInt(b.year) - parseInt(a.year);
@@ -1116,9 +898,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalBody.innerHTML = html;
 
-        // Update Title Style
-        // We separate the "Timeline: " part
-        const rawTitle = modalTitle.innerText; // "Timeline: a, b"
+        const rawTitle = modalTitle.innerText;
         if (rawTitle.includes(":")) {
             const parts = rawTitle.split(":");
             modalTitle.innerHTML = `Timeline <strong>${parts[1]}</strong>`;
