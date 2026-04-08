@@ -8,7 +8,6 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --modal-bg: rgba(20, 20, 20, 0.95);
 
-    /* REVISED GEOMETRY */
     --circle-size: 800px;
     --max-size: 95vw;
 }
@@ -39,7 +38,7 @@ body {
     -webkit-user-select: none;
 }
 
-/* --- RINGS LAYOUT (RESTORED) --- */
+/* --- RINGS --- */
 .timeline-ring {
     position: absolute;
     top: 0;
@@ -48,7 +47,6 @@ body {
     height: 100%;
     border-radius: 50%;
     border: 1px dashed rgba(255, 255, 255, 0.1);
-    /* Aesthetics update */
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform;
     z-index: 10;
@@ -68,7 +66,6 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px dashed rgba(255, 255, 255, 0.08);
-    /* Aesthetics update */
     z-index: 20;
     cursor: grab;
 }
@@ -89,7 +86,7 @@ body {
     pointer-events: none;
 }
 
-/* --- ITEMS -- */
+/* --- ITEMS --- */
 .year-item,
 .category-item {
     position: absolute;
@@ -97,7 +94,6 @@ body {
     left: 50%;
     transform-origin: center center;
     color: var(--text-inactive);
-    /* Aesthetics update */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -127,7 +123,6 @@ body {
     opacity: 0.8;
 }
 
-/* Active States */
 .year-item.active {
     color: var(--team-gold);
     font-size: 2.5rem;
@@ -188,7 +183,7 @@ body {
     border-right-width: 8px;
 }
 
-/* --- CONTENT DISPLAY AREA (MODERNIZED) --- */
+/* --- CONTENT AREA --- */
 .content-area {
     position: absolute;
     top: 240px;
@@ -206,7 +201,6 @@ body {
     --accent-glow: rgba(255, 215, 0, 0.35);
     font-family: 'Space Grotesk', 'Inter', sans-serif;
 
-    /* Scrollbar styling */
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) transparent;
 }
@@ -289,7 +283,6 @@ body {
     line-height: 1.6;
     text-align: left;
     background: transparent;
-    /* Removing card bg to let nodes sit on page */
     backdrop-filter: none;
     padding: 0 2px 40px;
     border: none;
@@ -305,7 +298,6 @@ body {
     margin-left: 8px;
 }
 
-/* The vertical line */
 .main-timeline::before {
     content: '';
     position: absolute;
@@ -338,7 +330,6 @@ body {
     }
 }
 
-/* The Node/Dot */
 .main-time-node {
     position: absolute;
     left: -10px;
@@ -357,7 +348,6 @@ body {
     place-items: center;
 }
 
-/* Event Card */
 .main-event-card {
     background: linear-gradient(145deg, rgba(28, 28, 28, 0.92), rgba(16, 16, 16, 0.96));
     backdrop-filter: blur(10px);
@@ -376,7 +366,6 @@ body {
     overflow: hidden;
 }
 
-/* Connector Line (optional visual flair) */
 .main-event-card::before {
     content: '';
     position: absolute;
@@ -435,8 +424,6 @@ body {
     color: #ececec;
     white-space: pre-line;
 }
-
-/* Old list styles removed */
 
 .empty-message {
     color: #b0b0b0;
@@ -528,7 +515,7 @@ body {
     text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
 }
 
-/* Vertical Timeline in Modal */
+/* --- MODAL TIMELINE --- */
 .timeline-list {
     position: relative;
     max-height: 60vh;
@@ -537,7 +524,6 @@ body {
     margin-top: 20px;
 }
 
-/* Modal Timeline Line */
 .timeline-list::before {
     content: '';
     position: absolute;
@@ -567,7 +553,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Connector line from main vertical line to card */
 .timeline-entry::before {
     content: '';
     position: absolute;
@@ -582,7 +567,6 @@ body {
 .timeline-dot {
     position: absolute;
     left: -26px;
-    /* Align with main vertical line */
     top: 26px;
     width: 14px;
     height: 14px;
@@ -629,11 +613,9 @@ body {
     line-height: 1.6;
 }
 
-/* Year Marker for major timeline changes */
 .timeline-year-marker {
     position: relative;
     margin-left: -50px;
-    /* Pull out to line */
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -649,7 +631,6 @@ body {
     z-index: 5;
 }
 
-/* Scrollbar for modal */
 .timeline-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -661,52 +642,6 @@ body {
 .timeline-list::-webkit-scrollbar-thumb {
     background-color: #444;
     border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    :root {
-        --circle-size: 500px;
-    }
-
-    .timeline-container {
-        top: -380px;
-    }
-
-    .year-item.active {
-        font-size: 2rem;
-    }
-
-    .content-area {
-        top: 180px;
-        height: calc(100vh - 200px);
-    }
-
-    .header-year {
-        font-size: 1.9rem;
-    }
-
-    .header-category {
-        font-size: 0.72rem;
-    }
-
-    .main-event-card {
-        padding: 16px 18px;
-    }
-
-    .main-event-text {
-        font-size: 0.98rem;
-    }
-
-    .main-time-node {
-        width: 18px;
-        height: 18px;
-        left: -9px;
-        font-size: 0.6rem;
-    }
-
-    .center-logo {
-        width: 25%;
-    }
 }
 
 /* --- INSTRUCTIONS OVERLAY --- */
@@ -726,7 +661,6 @@ body {
     transition: opacity 0.4s ease;
 }
 
-/* Hide immediately if already seen - prevents flash on refresh */
 html.instructions-seen .instructions-overlay {
     display: none !important;
 }
@@ -842,4 +776,51 @@ html.instructions-seen .instructions-overlay {
     background: rgba(255, 215, 0, 0.2);
     border-color: var(--team-gold);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    :root {
+        --circle-size: 500px;
+    }
+
+    .timeline-container {
+        top: -380px;
+    }
+
+    .year-item.active {
+        font-size: 2rem;
+    }
+
+    .content-area {
+        top: 180px;
+        height: calc(100vh - 200px);
+    }
+
+    .header-year {
+        font-size: 1.9rem;
+    }
+
+    .header-category {
+        font-size: 0.72rem;
+    }
+
+    .main-event-card {
+        padding: 16px 18px;
+    }
+
+    .main-event-text {
+        font-size: 0.98rem;
+    }
+
+    .main-time-node {
+        width: 18px;
+        height: 18px;
+        left: -9px;
+        font-size: 0.6rem;
+    }
+
+    .center-logo {
+        width: 25%;
+    }
 }
